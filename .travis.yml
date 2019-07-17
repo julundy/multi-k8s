@@ -1,0 +1,15 @@
+language: generic
+sudo: required
+services:
+  - docker
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+before_install:
+  - pip install awscli
+  - export PATH=$PATH:$HOME/.local/bin
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
