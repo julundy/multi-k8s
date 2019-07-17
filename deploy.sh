@@ -9,7 +9,7 @@ docker build -t julundy/multi-worker:latest -t 894511344406.dkr.ecr.us-west-2.am
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:latest
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:latest
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:latest
-docker run -e CI=true julundy/multi-docker npm test
+# docker run -e CI=true julundy/multi-client npm test
 # docker push julundy/multi-client:latest
 # docker push julundy/multi-server:latest
 # docker push julundy/multi-worker:latest
