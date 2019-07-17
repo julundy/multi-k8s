@@ -1,7 +1,6 @@
 language: python
 python: 
   - "2.7"
-  - "3.4"
 sudo: required
 services:
 - docker
@@ -18,11 +17,10 @@ before_install:
   - chmod +x ./aws-iam-authenticator
   - mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$HOME/bin:$PATH
   - echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-  - python --version
   - aws eks --region us-west-2 update-kubeconfig --name multi-k8s --role-arn arn:aws:iam::894511344406:user/Administrator
   - export PATH=$PATH:$HOME/.local/bin
-deploy:
-  provider: script
-  script: bash deploy.sh
-  on:
-    branch: master
+# deploy:
+#   provider: script
+#   script: bash deploy.sh
+#   on:
+#     branch: master
