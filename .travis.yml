@@ -6,6 +6,7 @@ env:
   global:
     - SHA=$(git rev-parse HEAD)
 before_install:
+  - pip install --upgrade pip
   - pip install awscli
   - export PATH=$PATH:$HOME/.local/bin
 deploy:
