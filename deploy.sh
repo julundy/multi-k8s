@@ -2,21 +2,17 @@
 
 $(aws ecr get-login --no-include-email --region us-west-2)
 
-docker build -t julundy/multi-client:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:latest -t julundy/multi-client:$SHA -f ./client/Dockerfile ./client
-docker build -t julundy/multi-server:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:latest-t julundy/multi-server:$SHA -f ./server/Dockerfile ./server
-docker build -t julundy/multi-worker:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:latest-t julundy/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t julundy/multi-client:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t julundy/multi-server:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:latest-t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t julundy/multi-worker:latest -t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:latest-t 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:latest
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:latest
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:latest
-# docker run -e CI=true julundy/multi-client npm test
-# docker push julundy/multi-client:latest
-# docker push julundy/multi-server:latest
-# docker push julundy/multi-worker:latest
 
-# docker push julundy/multi-client:$SHA
-# docker push julundy/multi-server:$SHA
-# docker push julundy/multi-worker:$SHA
+docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-client:$SHA
+docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:$SHA
+docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:$SHA
 
 # kubectl apply -f k8s
 # kubectl set image deployments/server-deployments server=julundy/multi-server:$SHA
