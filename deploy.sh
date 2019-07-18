@@ -15,6 +15,6 @@ docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-server:$S
 docker push 894511344406.dkr.ecr.us-west-2.amazonaws.com/julundy/multi-worker:$SHA
 
 kubectl apply -f k8s
-# kubectl set image deployments/server-deployments server=julundy/multi-server:$SHA
-# kubectl set image deployments/client-deployments client=julundy/multi-client:$SHA
-# kubectl set image deployments/worker-deployments worker=julundy/multi-worker:$SHA
+kubectl set image deployments/server-deployments server=julundy/multi-server:$SHA
+kubectl set image deployments/client-deployments client=julundy/multi-client:$SHA
+kubectl set image deployments/worker-deployments worker=julundy/multi-worker:$SHA
